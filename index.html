@@ -316,166 +316,150 @@
   }
 
 
-  /* ===== Exportación PDF desde iPhone ===== */
-  .pdf-export-panel { text-align:center; }
-  .pdf-export-button {
-    width:auto;
-    min-width:220px;
-    padding:12px 20px;
-    font-weight:800;
-    background:#004d40;
-  }
-  .pdf-export-button:disabled { opacity:.65; cursor:wait; }
-  .pdf-export-help { margin-top:7px; color:#64748b; font-size:12px; line-height:1.35; }
-  .pdf-export-overlay {
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:999999;
-    align-items:center;
-    justify-content:center;
-    padding:24px;
-    background:rgba(0,77,64,.92);
-    color:#fff;
-    text-align:center;
-    font-size:18px;
-    font-weight:800;
-  }
-  .pdf-export-overlay small { display:block; margin-top:8px; font-size:13px; font-weight:500; opacity:.9; }
-  body.is-exporting-pdf { overflow:hidden; }
-  body.is-exporting-pdf .pdf-export-overlay { display:flex; }
-
-  /* El elemento recibe esta clase solo mientras se genera el PDF. Estas reglas
-     anulan las tarjetas móviles y restauran tablas A4 con columnas reales. */
-  .pdf-export-sheet {
-    width:900px !important;
-    min-width:900px !important;
-    max-width:none !important;
-    margin:0 !important;
-    border-radius:0 !important;
-    overflow:visible !important;
-    background:#fff !important;
-  }
-  .pdf-export-sheet .header-pdf {
-    display:grid !important;
-    grid-template-columns:150px minmax(0,1fr) !important;
-    gap:16px !important;
-    padding:14px 18px !important;
-    align-items:center !important;
-    text-align:left !important;
-  }
-  .pdf-export-sheet .logo { width:140px !important; margin:0 !important; }
-  .pdf-export-sheet .company h2 { font-size:22px !important; }
-  .pdf-export-sheet .company small { font-size:12px !important; }
-  .pdf-export-sheet .meta { gap:10px !important; }
-  .pdf-export-sheet .meta div { font-size:11px !important; }
-  .pdf-export-sheet .bar {
-    display:flex !important;
-    flex-direction:row !important;
-    justify-content:space-between !important;
-    align-items:center !important;
-    gap:12px !important;
-    padding:10px 18px !important;
-  }
-  .pdf-export-sheet .doc-title { font-size:22px !important; }
-  .pdf-export-sheet .badge { font-size:12px !important; }
-  .pdf-export-sheet .items { padding:12px 18px 6px !important; overflow:visible !important; }
-
-  .pdf-export-sheet .preview-table {
-    display:table !important;
-    width:100% !important;
-    table-layout:fixed !important;
-    border-collapse:collapse !important;
-  }
-  .pdf-export-sheet .preview-table thead { display:table-header-group !important; }
-  .pdf-export-sheet .preview-table tbody { display:table-row-group !important; }
-  .pdf-export-sheet .preview-table tr { display:table-row !important; width:auto !important; margin:0 !important; padding:0 !important; border:0 !important; border-radius:0 !important; background:transparent !important; }
-  .pdf-export-sheet .preview-table th,
-  .pdf-export-sheet .preview-table td {
-    display:table-cell !important;
-    width:auto !important;
-    padding:7px 6px !important;
-    border-bottom:1px solid #e5e7eb !important;
-    text-align:left !important;
-    white-space:normal !important;
-    font-size:11px !important;
-    vertical-align:top !important;
-  }
-  .pdf-export-sheet .preview-table td::before { display:none !important; content:none !important; }
-  .pdf-export-sheet .preview-table th:nth-child(1),
-  .pdf-export-sheet .preview-table td:nth-child(1) { width:11% !important; }
-  .pdf-export-sheet .preview-table th:nth-child(2),
-  .pdf-export-sheet .preview-table td:nth-child(2) { width:39% !important; }
-  .pdf-export-sheet .preview-table th:nth-child(3),
-  .pdf-export-sheet .preview-table td:nth-child(3) { width:18% !important; text-align:right !important; white-space:nowrap !important; }
-  .pdf-export-sheet .preview-table th:nth-child(4),
-  .pdf-export-sheet .preview-table td:nth-child(4) { width:10% !important; text-align:right !important; white-space:nowrap !important; }
-  .pdf-export-sheet .preview-table th:nth-child(5),
-  .pdf-export-sheet .preview-table td:nth-child(5) { width:22% !important; text-align:right !important; white-space:nowrap !important; }
-
-  .pdf-export-sheet .wrap {
-    display:grid !important;
-    grid-template-columns:minmax(0,1fr) 250px !important;
-    gap:12px !important;
-    padding:6px 18px 14px !important;
-  }
-  .pdf-export-sheet .notes { padding:10px 12px !important; font-size:11px !important; line-height:1.35 !important; }
-  .pdf-export-sheet .totals-pdf { padding:10px !important; font-size:13px !important; }
-  .pdf-export-sheet .total-main .value { font-size:18px !important; }
-  .pdf-export-sheet .footer { padding:8px 18px !important; font-size:10px !important; }
-
-  .pdf-export-sheet .weight-section { overflow:visible !important; }
-  .pdf-export-sheet .weight-table {
-    display:table !important;
-    width:100% !important;
-    table-layout:fixed !important;
-    border-collapse:collapse !important;
-    font-size:10px !important;
-  }
-  .pdf-export-sheet .weight-table thead { display:table-header-group !important; }
-  .pdf-export-sheet .weight-table tbody { display:table-row-group !important; }
-  .pdf-export-sheet .weight-table tfoot { display:table-footer-group !important; }
-  .pdf-export-sheet .weight-table tr,
-  .pdf-export-sheet .weight-table .weight-total-row {
-    display:table-row !important;
-    width:auto !important;
-    margin:0 !important;
-    padding:0 !important;
-    border:0 !important;
-    border-radius:0 !important;
-    background:transparent !important;
-  }
-  .pdf-export-sheet .weight-table th,
-  .pdf-export-sheet .weight-table td,
-  .pdf-export-sheet .weight-table .weight-total-row td {
-    display:table-cell !important;
-    padding:5px 6px !important;
-    border:1px solid #cbd5e1 !important;
-    width:auto !important;
-    text-align:left !important;
-    white-space:normal !important;
-    font-size:10px !important;
-    vertical-align:middle !important;
-  }
-  .pdf-export-sheet .weight-table td::before { display:none !important; content:none !important; }
-  .pdf-export-sheet .weight-table th:nth-child(1),
-  .pdf-export-sheet .weight-table td:nth-child(1) { width:46% !important; }
-  .pdf-export-sheet .weight-table th:nth-child(2),
-  .pdf-export-sheet .weight-table td:nth-child(2) { width:18% !important; text-align:right !important; white-space:nowrap !important; }
-  .pdf-export-sheet .weight-table th:nth-child(3),
-  .pdf-export-sheet .weight-table td:nth-child(3) { width:14% !important; text-align:right !important; white-space:nowrap !important; }
-  .pdf-export-sheet .weight-table th:nth-child(4),
-  .pdf-export-sheet .weight-table td:nth-child(4) { width:22% !important; text-align:right !important; white-space:nowrap !important; }
-  .pdf-export-sheet .weight-table .weight-total-label { text-align:left !important; }
-  .pdf-export-sheet .weight-table .weight-total-value { text-align:right !important; white-space:nowrap !important; }
-
-  .pdf-export-sheet tr,
-  .pdf-export-sheet .totals-pdf,
-  .pdf-export-sheet .weight-section-title { break-inside:avoid; page-break-inside:avoid; }
-
+  /* ===== Vista de cotización móvil en columnas compactas ===== */
   @media (max-width:640px) {
-    .pdf-export-panel { padding:11px; }
-    .pdf-export-button { width:100%; min-height:50px; font-size:17px; }
+    /* Tabla principal: conserva encabezados y columnas en una sola fila. */
+    .items {
+      padding:8px 6px 6px;
+      overflow:hidden;
+    }
+    .preview-table {
+      display:table !important;
+      width:100% !important;
+      table-layout:fixed;
+      border-collapse:collapse;
+      font-size:9.5px;
+    }
+    .preview-table thead { display:table-header-group !important; }
+    .preview-table tbody { display:table-row-group !important; width:auto !important; }
+    .preview-table tr {
+      display:table-row !important;
+      width:auto !important;
+      margin:0 !important;
+      padding:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      background:transparent !important;
+      box-shadow:none !important;
+    }
+    .preview-table th,
+    .preview-table td {
+      display:table-cell !important;
+      width:auto !important;
+      padding:5px 3px !important;
+      border:0 !important;
+      border-bottom:1px solid #e2e8f0 !important;
+      vertical-align:top;
+      line-height:1.18;
+      font-size:9.5px !important;
+      white-space:normal !important;
+      overflow-wrap:anywhere;
+      word-break:normal;
+    }
+    .preview-table th {
+      background:#f0fbfa !important;
+      color:#0b5a52;
+      font-size:8.8px !important;
+      font-weight:800;
+    }
+    .preview-table td::before,
+    .preview-table th::before {
+      display:none !important;
+      content:none !important;
+    }
+    .preview-table th:nth-child(1),
+    .preview-table td:nth-child(1) { width:13% !important; text-align:left !important; }
+    .preview-table th:nth-child(2),
+    .preview-table td:nth-child(2) { width:35% !important; text-align:left !important; }
+    .preview-table th:nth-child(3),
+    .preview-table td:nth-child(3) { width:20% !important; text-align:right !important; }
+    .preview-table th:nth-child(4),
+    .preview-table td:nth-child(4) { width:10% !important; text-align:right !important; }
+    .preview-table th:nth-child(5),
+    .preview-table td:nth-child(5) { width:22% !important; text-align:right !important; }
+    .preview-table td:nth-child(1) { font-size:8.7px !important; }
+    .preview-table td:nth-child(3),
+    .preview-table td:nth-child(4),
+    .preview-table td:nth-child(5) {
+      white-space:nowrap !important;
+      overflow-wrap:normal;
+    }
+    .preview-table tbody td:last-child {
+      color:#111827 !important;
+      font-weight:700;
+    }
+
+    /* Tabla de pesos: cuatro columnas visibles, sin convertir filas en tarjetas. */
+    .weight-section { overflow:hidden; }
+    .weight-table {
+      display:table !important;
+      width:100% !important;
+      table-layout:fixed;
+      border-collapse:collapse;
+      font-size:9.5px !important;
+    }
+    .weight-table thead { display:table-header-group !important; }
+    .weight-table tbody { display:table-row-group !important; width:auto !important; }
+    .weight-table tfoot { display:table-footer-group !important; width:auto !important; }
+    .weight-table tr,
+    .weight-table .weight-total-row {
+      display:table-row !important;
+      width:auto !important;
+      margin:0 !important;
+      padding:0 !important;
+      border:0 !important;
+      border-radius:0 !important;
+      background:transparent !important;
+    }
+    .weight-table th,
+    .weight-table td,
+    .weight-table .weight-total-row td {
+      display:table-cell !important;
+      width:auto !important;
+      padding:5px 3px !important;
+      border:1px solid #cbd5e1 !important;
+      vertical-align:middle;
+      line-height:1.18;
+      font-size:9.3px !important;
+      white-space:normal !important;
+      overflow-wrap:anywhere;
+    }
+    .weight-table td::before,
+    .weight-table th::before {
+      display:none !important;
+      content:none !important;
+    }
+    .weight-table th:nth-child(1),
+    .weight-table td:nth-child(1) { width:45% !important; text-align:left !important; }
+    .weight-table th:nth-child(2),
+    .weight-table td:nth-child(2) { width:19% !important; text-align:right !important; }
+    .weight-table th:nth-child(3),
+    .weight-table td:nth-child(3) { width:14% !important; text-align:right !important; }
+    .weight-table th:nth-child(4),
+    .weight-table td:nth-child(4) { width:22% !important; text-align:right !important; }
+    .weight-table td:nth-child(2),
+    .weight-table td:nth-child(3),
+    .weight-table td:nth-child(4),
+    .weight-table .weight-total-value {
+      white-space:nowrap !important;
+      overflow-wrap:normal;
+    }
+    .weight-table .weight-total-row td {
+      background:#f8fafc !important;
+      font-weight:900;
+    }
+    .weight-table .weight-total-label { text-align:left !important; }
+    .weight-table .weight-total-value { text-align:right !important; }
+  }
+
+  @media (max-width:380px) {
+    .preview-table { font-size:8.8px; }
+    .preview-table th,
+    .preview-table td { padding:4px 2px !important; font-size:8.6px !important; }
+    .preview-table th { font-size:8px !important; }
+    .weight-table th,
+    .weight-table td,
+    .weight-table .weight-total-row td { padding:4px 2px !important; font-size:8.6px !important; }
   }
 
 </style>
@@ -574,13 +558,6 @@
     </div>
   </div>
 
-
-
-  <div class="panel pdf-export-panel" style="margin-top:10px">
-    <button type="button" class="btn pdf-export-button" id="export-pdf">Exportar cotización a PDF</button>
-    <div class="pdf-export-help">El PDF se genera en formato A4 y conserva las columnas de productos y pesos.</div>
-  </div>
-
   <div class="sheet" id="sheet" style="max-width:900px">
     <div class="header-pdf">
       <img class="logo" src="data:image/png;base64,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" alt="Logo iLikes" onerror="this.style.display='none'">
@@ -643,13 +620,6 @@
   </div>
 </div>
 
-
-<div class="pdf-export-overlay" id="pdf-export-overlay">
-  <div>
-    Generando PDF…
-    <small>Espera unos segundos. En iPhone se abrirá el documento para guardarlo o compartirlo.</small>
-  </div>
-</div>
 
 
 <script>
@@ -1185,159 +1155,6 @@ document.getElementById('desired-qty').addEventListener('keydown',e=>{
   if(e.key==='Enter') addSelectedProduct();
 });
 
-
-function ensureHtml2Pdf(){
-  return new Promise((resolve,reject)=>{
-    if(window.html2pdf) return resolve(window.html2pdf);
-
-    const load=(src,onFail)=>{
-      const script=document.createElement('script');
-      script.src=src;
-      script.async=true;
-      script.onload=()=>window.html2pdf ? resolve(window.html2pdf) : onFail();
-      script.onerror=onFail;
-      document.head.appendChild(script);
-    };
-
-    load('https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js',()=>{
-      load('https://unpkg.com/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js',()=>{
-        reject(new Error('No se pudo cargar el generador de PDF.'));
-      });
-    });
-  });
-}
-
-function pdfFilename(){
-  const quote=(document.getElementById('pdf-num')?.textContent || 'cotizacion-ilikes').trim();
-  return `${quote.replace(/[^a-zA-Z0-9_-]+/g,'-')}.pdf`;
-}
-
-function waitForImages(element){
-  const images=[...element.querySelectorAll('img')];
-  return Promise.all(images.map(img=>{
-    if(img.complete) return Promise.resolve();
-    return new Promise(resolve=>{
-      img.addEventListener('load',resolve,{once:true});
-      img.addEventListener('error',resolve,{once:true});
-    });
-  }));
-}
-
-async function exportQuotePdf(){
-  if(!rows.length){
-    alert('Agrega al menos un producto antes de exportar la cotización.');
-    return;
-  }
-
-  const button=document.getElementById('export-pdf');
-  const sourceSheet=document.getElementById('sheet');
-  const previousScrollX=window.scrollX;
-  const previousScrollY=window.scrollY;
-  const isIOS=/iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
-  let pdfTab=null;
-  let exportStage=null;
-
-  if(isIOS){
-    // Abrir la pestaña durante el toque evita que Safari la bloquee tras la espera.
-    pdfTab=window.open('', '_blank');
-    if(pdfTab){
-      pdfTab.document.write('<!doctype html><title>Generando PDF</title><meta name="viewport" content="width=device-width,initial-scale=1"><body style="font-family:-apple-system,BlinkMacSystemFont,sans-serif;padding:30px;text-align:center">Generando cotización…</body>');
-    }
-  }
-
-  try{
-    button.disabled=true;
-    button.textContent='Generando PDF…';
-    syncPreview();
-    await ensureHtml2Pdf();
-
-    // Evita que un desplazamiento horizontal o vertical de la página recorte
-    // el contenido al capturarlo con html2canvas.
-    window.scrollTo(0,0);
-    document.body.classList.add('is-exporting-pdf');
-
-    // Se exporta una copia independiente, colocada exactamente en (0,0).
-    // Así la vista móvil permanece intacta y el PDF siempre usa diseño A4.
-    exportStage=document.createElement('div');
-    exportStage.setAttribute('aria-hidden','true');
-    Object.assign(exportStage.style,{
-      position:'absolute',
-      left:'0',
-      top:'0',
-      width:'900px',
-      minWidth:'900px',
-      maxWidth:'900px',
-      margin:'0',
-      padding:'0',
-      background:'#ffffff',
-      zIndex:'999998',
-      pointerEvents:'none',
-      overflow:'visible'
-    });
-
-    const exportSheet=sourceSheet.cloneNode(true);
-    exportSheet.removeAttribute('id');
-    exportSheet.classList.add('pdf-export-sheet');
-    exportSheet.style.width='900px';
-    exportSheet.style.minWidth='900px';
-    exportSheet.style.maxWidth='900px';
-    exportSheet.style.margin='0';
-    exportSheet.style.position='relative';
-    exportSheet.style.left='0';
-    exportSheet.style.top='0';
-    exportSheet.style.transform='none';
-
-    exportStage.appendChild(exportSheet);
-    document.body.appendChild(exportStage);
-
-    await waitForImages(exportSheet);
-    await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
-
-    const exportHeight=Math.max(exportSheet.scrollHeight, exportSheet.offsetHeight, 1);
-    const options={
-      margin:[8,8,8,8],
-      filename:pdfFilename(),
-      image:{type:'jpeg',quality:0.98},
-      html2canvas:{
-        scale:2,
-        useCORS:true,
-        allowTaint:true,
-        backgroundColor:'#ffffff',
-        windowWidth:1200,
-        windowHeight:Math.max(900,exportHeight+40),
-        scrollX:0,
-        scrollY:0,
-        x:0,
-        y:0
-      },
-      jsPDF:{unit:'mm',format:'a4',orientation:'portrait',compress:true},
-      pagebreak:{mode:['css','legacy'],avoid:['tr','.totals-pdf','.weight-total-row']}
-    };
-
-    const worker=window.html2pdf().set(options).from(exportSheet).toPdf();
-    const pdf=await worker.get('pdf');
-
-    if(isIOS && pdfTab){
-      const url=pdf.output('bloburl');
-      pdfTab.location.href=url;
-    }else{
-      pdf.save(pdfFilename());
-    }
-  }catch(error){
-    if(pdfTab && !pdfTab.closed) pdfTab.close();
-    console.error(error);
-    alert('No se pudo generar el PDF. Revisa tu conexión a internet e inténtalo nuevamente.');
-  }finally{
-    if(exportStage) exportStage.remove();
-    document.body.classList.remove('is-exporting-pdf');
-    button.disabled=false;
-    button.textContent='Exportar cotización a PDF';
-    window.scrollTo(previousScrollX,previousScrollY);
-  }
-}
-
-
-document.getElementById('export-pdf').addEventListener('click',exportQuotePdf);
 makeQuoteNumber();
 populateProductSelector();
 refreshAll();
